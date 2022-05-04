@@ -10,10 +10,17 @@ import CoreML
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var uiImageView: UIImageView!
+    @IBOutlet weak var ageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getAge()
+    }
+    
+    @IBAction func addImage(_ sender: Any) {
+        
     }
     
     func getAge() {
