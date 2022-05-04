@@ -28,16 +28,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your age?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB6-HX-EWS">
+                                <rect key="frame" x="16" y="212" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sjl-Yt-siW" firstAttribute="top" secondItem="s1f-j1-C7n" secondAttribute="bottom" constant="16" id="587-Ti-xRe"/>
+                            <constraint firstItem="s1f-j1-C7n" firstAttribute="top" secondItem="gB6-HX-EWS" secondAttribute="bottom" constant="16" id="ID3-Pu-8we"/>
+                            <constraint firstItem="gB6-HX-EWS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="L4g-BU-JqY"/>
                             <constraint firstItem="s1f-j1-C7n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y2x-KE-SXD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s1f-j1-C7n" secondAttribute="trailing" constant="16" id="Zft-TG-MWn"/>
                             <constraint firstItem="sjl-Yt-siW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dfb-zQ-Nbs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sjl-Yt-siW" secondAttribute="trailing" constant="16" id="dw3-VF-xwE"/>
                             <constraint firstItem="s1f-j1-C7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nr7-34-4hn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gB6-HX-EWS" secondAttribute="trailing" constant="16" id="tJO-9k-vsc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ubK-BK-AAr">
