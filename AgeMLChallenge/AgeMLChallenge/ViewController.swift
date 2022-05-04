@@ -8,34 +8,54 @@
 import UIKit
 import CoreML
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavigationControllerDelegate  {
     
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var ageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getAge()
     }
     
     @IBAction func addImage(_ sender: Any) {
-        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    func getAge() {
-        let image = UIImage(named: "crianca")?.resize(size: CGSize(width: 227, height: 227))
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true) {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.uiImageView.image = image
+                self.processImage(image)
+                
+            }
+        }
+    }
+    
+    private func processImage(_ image: UIImage) {
+        uiImageView.image = image
+        getAge(image)
+    }
+    
+    func getAge(_ image: UIImage) {
+        let imageResized = image.resize(size: CGSize(width: 227, height: 227))
         
         do {
             let config = MLModelConfiguration()
             
             let model = try AgeNet(configuration: config)
             
-            let input = AgeNetInput(data: (image?.toCVPixelBuffer())!)
+            let input = AgeNetInput(data: (imageResized?.toCVPixelBuffer())!)
             
             let output = try model.prediction(input: input)
             
             print(String(describing: output.classLabel))
+            
+            DispatchQueue.main.async {
+                self.ageLabel.text = output.classLabel.description
+            }
         } catch {
             print(error.localizedDescription)
         }
