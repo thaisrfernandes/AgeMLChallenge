@@ -50,6 +50,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ubK-BK-AAr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="rnA-7v-N9X">
+                            <connections>
+                                <action selector="takePhoto:" destination="BYZ-38-t0r" id="elv-lG-CZT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="053-Ed-P0w">
                             <connections>
                                 <action selector="addImage:" destination="BYZ-38-t0r" id="Z02-2f-wQQ"/>

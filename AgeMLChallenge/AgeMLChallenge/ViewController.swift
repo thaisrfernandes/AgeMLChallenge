@@ -39,6 +39,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         getAge(image)
     }
     
+    @IBAction func takePhoto(_ sender: Any) {
+        
+    }
+    
     func getAge(_ image: UIImage) {
         let imageResized = image.resize(size: CGSize(width: 227, height: 227))
         
