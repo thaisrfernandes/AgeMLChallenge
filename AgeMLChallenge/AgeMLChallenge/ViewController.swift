@@ -30,6 +30,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
                 self.uiImageView.image = image
                 self.processImage(image)
                 
+            } else if let image = info[.editedImage] as? UIImage {
+                self.uiImageView.image = image
+                self.processImage(image)
             }
         }
     }
@@ -40,7 +43,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     func getAge(_ image: UIImage) {
