@@ -67,6 +67,27 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-ED-b2p" userLabel="OverlayView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-2E-lgp">
+                            <rect key="frame" x="0.0" y="44" width="375" height="84"/>
+                            <items>
+                                <barButtonItem title="Done" id="hgx-um-j6T"/>
+                                <barButtonItem title="Snap" id="0FV-6k-5Tu"/>
+                            </items>
+                            <toolbarAppearance key="compactAppearance"/>
+                        </toolbar>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="ZV1-3J-Iib"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="gwl-2E-lgp" firstAttribute="leading" secondItem="ZV1-3J-Iib" secondAttribute="leading" id="4QG-wk-kaY"/>
+                        <constraint firstItem="gwl-2E-lgp" firstAttribute="bottom" secondItem="ZV1-3J-Iib" secondAttribute="bottom" id="Grt-3G-Rba"/>
+                        <constraint firstItem="gwl-2E-lgp" firstAttribute="top" secondItem="ZV1-3J-Iib" secondAttribute="top" id="x4g-dM-s5j"/>
+                        <constraint firstItem="gwl-2E-lgp" firstAttribute="trailing" secondItem="ZV1-3J-Iib" secondAttribute="trailing" id="z8n-sp-bVb"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>
