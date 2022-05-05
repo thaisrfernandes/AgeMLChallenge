@@ -15,13 +15,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        uiImageView.layer.cornerRadius = 20
+        uiImageView.layer.shadowRadius = 20
+        uiImageView.layer.shadowOpacity = 50
     }
     
     @IBAction func addImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { _ in
+                     self.openCamera()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Open Gallery", style: .default, handler: { _ in
+                     self.openGallery()
+                }))
+                
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -39,8 +51,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
         getAge(image)
     }
     
-    @IBAction func takePhoto(_ sender: Any) {
-        
+    func openGallery() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func openCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     func getAge(_ image: UIImage) {
